@@ -97,7 +97,8 @@ img { max-width: 100%; display: block; }
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
 .brand { display: inline-flex; align-items: center; gap: .6rem; color: var(--blue); }
-.brand-mark { display: inline-flex; }
+.brand-mark { display: inline-flex; line-height: 0; }
+.brand-mark svg { border-radius: 12px; box-shadow: 0 2px 8px rgba(15, 42, 74, .18); }
 .brand-text { font-family: var(--font-head); font-size: 1.35rem; font-weight: 600; color: var(--navy); letter-spacing: -0.02em; }
 .brand-text strong { color: var(--blue); font-weight: 700; }
 

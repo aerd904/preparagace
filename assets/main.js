@@ -123,7 +123,7 @@
           }
         })
         .catch(function () {
-          status.textContent = "No se pudo enviar. Escríbeme a hola@preparagace.es mientras lo reviso.";
+          status.textContent = "No se pudo enviar. Escríbeme a estefania.preparagace@gmail.com mientras lo reviso.";
           status.className = "form-status err";
         })
         .finally(function () {
