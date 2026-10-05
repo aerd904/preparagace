@@ -331,8 +331,20 @@
           </ul>
         </div>
 
+        <!--
+          FORMULARIO DE CONTACTO (Formspree)
+          =================================
+          Para activarlo, sustituye TU_ID_FORMSPREE (abajo, en el atributo action)
+          por el ID real que te da Formspree al crear el formulario con tu Gmail.
+          Ejemplo: action="https://formspree.io/f/myzgabcd"
+          Mientras ponga TU_ID_FORMSPREE, el formulario funciona en modo demo (no envía).
+        -->
         <form class="contact-form" id="contactForm" novalidate
-              action="https://formspree.io/f/your-form-id" method="POST">
+              action="https://formspree.io/f/TU_ID_FORMSPREE" method="POST">
+          <!-- Asunto del email que recibe Estefania -->
+          <input type="hidden" name="_subject" value="Nueva solicitud desde preparagace.es" />
+          <!-- Honeypot anti-spam: Formspree descarta el envio si este campo se rellena -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
           <div class="field">
             <label for="name">Nombre</label>
             <input type="text" id="name" name="name" required placeholder="Tu nombre" autocomplete="name" />

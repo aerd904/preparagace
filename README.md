@@ -41,12 +41,33 @@ python -m http.server 8000
 Edita estos puntos en `index.html`:
 
 - **Datos de contacto**: email `hola@preparagace.es`, teléfono y enlaces de redes.
-- **Formulario**: el atributo `action` apunta a un placeholder de Formspree.
-  Mientras no lo cambies, el formulario funciona en "modo demo" (no envía nada).
-  Para recibir mensajes de verdad, crea un formulario gratis en
-  [formspree.io](https://formspree.io) y pega tu URL en `action`.
+- **Formulario de contacto (Formspree)**: ver sección "Activar el formulario" abajo.
 - **Textos, precios y testimonios**: están marcados como "prueba de concepto".
 - **Sobre mí / foto**: sustituye el bloque `.about-photo` por tu imagen real.
+
+## Activar el formulario de contacto
+
+El formulario ya está totalmente preparado para [Formspree](https://formspree.io)
+(gratis hasta 50 envíos/mes). Solo falta un paso que debe hacer la dueña del Gmail:
+
+1. Entra en [formspree.io](https://formspree.io) y crea una cuenta con el Gmail
+   que debe recibir los mensajes (`estefania.preparagace@gmail.com`).
+2. Crea un formulario nuevo ("+ New form"). Formspree te dará un endpoint con la
+   forma `https://formspree.io/f/XXXXXXXX`, donde `XXXXXXXX` es el ID del formulario.
+3. En `index.html`, busca `TU_ID_FORMSPREE` dentro del atributo `action` del
+   formulario y sustitúyelo por ese ID. Debe quedar, por ejemplo:
+   `action="https://formspree.io/f/myzgabcd"`.
+4. Guarda, haz commit y push. El primer envío real pedirá confirmar el correo en
+   Formspree (solo la primera vez); a partir de ahí los mensajes llegan al Gmail.
+
+Mientras ponga `TU_ID_FORMSPREE`, el formulario funciona en "modo demo": valida los
+campos y muestra un aviso, pero no envía nada. Así se puede probar sin configurar nada.
+
+Extras ya incluidos:
+- `_subject`: asunto del email que recibe Estefanía.
+- `_gotcha`: campo oculto anti-spam que Formspree filtra automáticamente.
+- Validación en el navegador (nombre, email con formato, mensaje y aceptación de privacidad).
+- Envío por `fetch` sin recargar la página, con estados "Enviando…", éxito y error.
 
 ## Despliegue a producción (resumen)
 

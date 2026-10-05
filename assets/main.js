@@ -94,11 +94,13 @@
       if (!validate()) return;
 
       var action = form.getAttribute("action") || "";
-      var usingPlaceholder = action.indexOf("your-form-id") !== -1 || action === "";
+      var usingPlaceholder = action.indexOf("TU_ID_FORMSPREE") !== -1 ||
+                             action.indexOf("your-form-id") !== -1 ||
+                             action === "";
 
-      // Si aún no hay backend configurado, simulamos el envío (modo PoC)
+      // Si aún no hay backend configurado, simulamos el envío (modo demo)
       if (usingPlaceholder) {
-        status.textContent = "¡Gracias! (Demo) Conecta un servicio de formularios para recibir los mensajes de verdad.";
+        status.textContent = "¡Gracias! (Demo) El formulario aún no está conectado. Pega tu ID de Formspree en el atributo action para recibir los mensajes.";
         status.className = "form-status ok";
         form.reset();
         return;
